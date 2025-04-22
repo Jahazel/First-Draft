@@ -67,6 +67,95 @@
         design of intelligent systems.
       </p>
 
+      <h2>Ethical Sweep</h2>
+      <h3>General Considerations</h3>
+      <p>
+        At a high level, our work aims to improve accessibility for low-vision
+        users by creating an AI-powered document reader that combines OCR and
+        image captioning with an intuitive, inclusive interface. This tool has
+        the potential to meaningfully enhance document comprehension, especially
+        for materials that include complex layouts or images, which traditional
+        OCR systems often struggle to interpret. However, the benefits hinge on
+        careful and ethical implementation, especially regarding fairness,
+        accuracy, and user privacy.
+      </p>
+      <p>
+        While non-ML alternatives (e.g., basic OCR paired with text-to-speech)
+        exist, they typically fall short in terms of interpreting image-heavy or
+        structurally complex documents. Our approach, using advanced
+        transformer-based models, is better suited for delivering contextual
+        understanding of both visual and textual elements.
+      </p>
+      <p>
+        Our team brings together individuals from varied technical and creative
+        backgrounds, including computer science and design. However, none of us
+        personally experience vision impairments. To mitigate this limitation,
+        we plan to involve low-vision users throughout the development and
+        testing process, ensuring that their feedback informs key design
+        decisions. To handle mistakes or edge cases, we will incorporate an
+        in-app feedback mechanism, allowing users to flag errors in text
+        extraction or image descriptions. These reports will be reviewed
+        regularly, and critical issues will be prioritized in system updates.
+        Transparency will be maintained through accessible documentation
+        outlining how the system functions, the models involved, and their known
+        limitations.
+      </p>
+      <h3>Data Curation and Use</h3>
+      <p>
+        Our tool relies primarily on Tesseract OCR models and the SynthText
+        dataset, which offer a solid starting point for general-purpose text
+        recognition. These sources are well-established in the field and provide
+        a strong baseline for printed text in structured layouts. However, they
+        have limitations when it comes to less conventional document types—such
+        as handwritten notes, tactile documents like Braille, or heavily
+        cluttered layouts—which could reduce the effectiveness of our system in
+        those contexts.
+      </p>
+      <p>
+        In addition to OCR, we use image captioning models like BLIP and Donut,
+        which are trained on large-scale internet datasets. While these models
+        bring powerful capabilities for describing images, their training data
+        may introduce several kinds of bias. One key issue is language bias,
+        given the predominance of English and Latin-based scripts in both the
+        OCR and captioning datasets. Another concern is layout bias, since
+        synthetic datasets like SynthText may not fully capture the variability
+        and disorganization of real-world documents, such as medical forms or
+        personal notes. Lastly, the captioning models may reflect stereotypical
+        assumptions embedded in their training data, including inaccurate
+        gendering or cultural misrepresentation in image descriptions.
+      </p>
+      <p>
+        These challenges highlight the importance of validating our tool with
+        real-world user data and maintaining awareness of how dataset
+        limitations might affect performance across different user groups and
+        document types.
+      </p>
+      <h3>Impact Assessment</h3>
+      <p>
+        Our main ethical focus is on how the tool might affect users if it were
+        actually deployed in the real world. One consideration is user reliance:
+        even though we’re designing this to support low-vision users, we
+        wouldn’t want the system to unintentionally replace their own ways of
+        navigating content. To address this, we discussed interactive features
+        like a “hints” or “progressive reveal” mode, but due to time and scope,
+        we’re focusing on just making the basic tool work well first.
+      </p>
+      <p>
+        Another potential issue is how the tool would handle documents with high
+        stakes—like medical instructions, financial documents, or anything that
+        requires high accuracy. We’re not aiming for full reliability in those
+        contexts at this stage, but we imagine future versions could include
+        accuracy warnings or prompts to verify results with a sighted assistant.
+      </p>
+      <p>
+        Finally, we know our current system may not perform equally well on all
+        document types—especially handwritten notes, complex diagrams, or
+        non-English content. We’d need more testing and feedback from real users
+        to understand how well the system generalizes. Long-term, it would be
+        important to track those gaps and make sure improvements don’t benefit
+        just one kind of user or document.
+      </p>
+
       <h2>Related Work</h2>
       <p>
         Several previous efforts have informed and shaped our project, yet each
@@ -118,83 +207,6 @@
         comprehensive, robust accessibility solution tailored precisely to the
         critical needs of low-vision users interpreting complex visual-textual
         documents.
-      </p>
-
-      <h2>Ethical Sweep</h2>
-      <h3>General Questions</h3>
-      <p>
-        Should we even be doing this? Yes—if implemented with care and attention
-        to the specific needs of low-vision users, our AI-powered document
-        reader can significantly improve accessibility and provide users with a
-        more inclusive experience. However, we must ensure that it is built and
-        used responsibly, keeping ethical concerns in mind, such as
-        accessibility, fairness, and user privacy. What might be the accuracy of
-        a simple non-ML alternative? A non-ML alternative, such as basic OCR
-        with text-to-speech, would likely lack the nuanced contextual
-        understanding of images and layouts, which our ML-powered models aim to
-        address. It would be less effective in interpreting complex documents,
-        especially those with mixed media (e.g., images, charts, and diagrams),
-        offering a less comprehensive user experience. What processes will we
-        use to handle appeals/mistakes? We will implement an in-app feedback
-        system where users can report issues with both text extraction and image
-        captioning. This will be coupled with a clear process for error
-        correction and system updates, where feedback from users is regularly
-        reviewed to improve the accuracy of outputs. Users will also be able to
-        request revisions to descriptions if they feel the content is inaccurate
-        or misleading. How diverse is our team? Our team includes members from
-        various technical and creative backgrounds. However, none of us
-        experience vision impairments personally, which makes it essential to
-        regularly involve low-vision users in the design and testing phases to
-        ensure the final product truly meets their needs. How will we maintain
-        transparency for the model? We will document the architecture of our
-        model, including how the AI and OCR systems make decisions, and
-        communicate known limitations (e.g., accuracy challenges with complex
-        layouts or certain image types). We will ensure that users have access
-        to simple explanations about how the technology works and the types of
-        data it processes.
-      </p>
-      <h3>Data Questions</h3>
-      <p>
-        Is our data valid for its intended use? Partially—Tesseract/SynthText
-        datasets are robust for general OCR but may lack niche document types
-        (e.g., handwritten notes, Braille). We’ll prioritize user-uploaded data
-        for iterative validation. What biases could be in our data? Language
-        bias: Overrepresentation of English/Latin scripts. Layout bias:
-        Synthetic data (SynthText) may not mimic real-world messy documents.
-        Image bias: Captioning models may stereotype based on training data
-        (e.g., misgendering people in photos). How can we minimize bias?
-        Fine-tune models on domain-specific documents (e.g., medical forms) and
-        diversify training data with non-Latin scripts. Use bias audits (e.g.,
-        HuggingFace’s bias metrics) and involve low-vision users from diverse
-        backgrounds in testing. How should we audit our code/data? Automated:
-        Unit tests for OCR/captioning accuracy, adversarial testing (e.g., noisy
-        images). Human: Partner with accessibility NGOs for manual audits of
-        sensitive outputs. How can we ensure data security? Anonymization: Strip
-        metadata from user-uploaded documents. Encryption: End-to-end encryption
-        for data in transit/storage (e.g., TLS, AES-256). Retention: Auto-delete
-        processed documents after 24 hours unless explicitly saved by the user.
-      </p>
-      <h3>User Impact Questions</h3>
-      <p>
-        Could this tool create dependency or reduce existing skills? Risk:
-        Overreliance on AI descriptions might erode users’ residual
-        image-interpretation skills. Mitigation: Offer "hints" mode to encourage
-        active engagement with content. How will we protect vulnerable users
-        from harmful outputs? Block unsafe content (e.g., violent images) via
-        NSFW filters and provide content warnings ("This image may contain
-        sensitive material"). What if the tool fails in high-stakes scenarios
-        (e.g., medical instructions)? Include disclaimers ("Verify critical
-        information with a sighted assistant") and prioritize high-accuracy
-        modes for such documents.
-      </p>
-      <h3>Long-Term Ethical Considerations</h3>
-      <p>
-        Keeping the Tool Fair & Accurate Bias Checks: Regularly test the AI to
-        make sure it works well for all types of documents (different languages,
-        fonts, images). User Feedback: Let users report mistakes so the system
-        can improve over time. 2. Privacy & Security No Data Hoarding: Delete
-        processed documents quickly unless the user chooses to save them.
-        Encryption: Protect uploaded files so no one else can access them.
       </p>
 
       <h2>Methods</h2>
@@ -396,6 +408,41 @@
         our project apart from others that may be more focused on technical
         novelty but less concerned with practical, user-oriented outcomes.
       </p>
+
+      <h2>Reflection</h2>
+      <p>
+        Working on the AI-Powered Document Reader for Low-Vision Users has been
+        a challenging yet rewarding experience for our team. Throughout the
+        project, we deepened our understanding of neural networks, multimodal
+        learning, and human-centered design, particularly as it relates to
+        accessibility and inclusive technology.
+      </p>
+      <p>
+        At the beginning, most of us were familiar with the basics of deep
+        learning, but we had limited hands-on experience integrating multiple
+        models or deploying real-world applications. As we navigated model
+        selection — from Tesseract OCR to BLIP and Donut for image captioning —
+        we learned how to evaluate not just accuracy or novelty, but also
+        usability and performance in context. It became clear that no model was
+        perfect across all types of documents, and this forced us to think
+        critically about tradeoffs between interpretability, robustness, and
+        computational efficiency.
+      </p>
+      <p>
+        We also grew in our understanding of ethical design, particularly
+        regarding how assumptions in model training, data representation, and
+        interface structure can unintentionally exclude or misrepresent users
+        with disabilities. This made us more deliberate in our choices and
+        pushed us to think beyond technical performance toward real-world
+        impact.
+      </p>
+      <p>
+        Overall, this project allowed us to explore the intersection of AI and
+        accessibility in a way that was both technically rigorous and socially
+        meaningful. It gave us the confidence and curiosity to continue building
+        tools that are not only intelligent but also inclusive.
+      </p>
+
       <h2>References</h2>
       <p id="ref1">
         [1] Tesseract OCR.
