@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="top">AI-Powered Document Reader for Low-Vision Users</h1>
+      <h1 id="top">AI-Powered Document & Image Reader for Low-Vision Users</h1>
       <h2>Team Members</h2>
       <section class="team">
         <p>
@@ -273,6 +273,81 @@
         text. This fusion of traditional vision processing and recurrent neural
         networks made Tesseract an ideal candidate for our project.
       </p>
+      <h4>How Tesseract OCR Works</h4>
+      <p>
+        Our understanding of the Tesseract OCR engine is based on R. Smith’s foundational work, 
+        <em>"An Overview of the Tesseract OCR Engine"</em> (ICDAR 2007). Tesseract uses a multi-stage pipeline:
+      </p>
+
+      <ul>
+        <li><strong>1. Image Processing and Blob Detection:</strong> Tesseract identifies blobs (outlines of shapes), groups them into characters, then words and lines.</li>
+        <li><strong>2. Line Finding Algorithm:</strong> Filters out irrelevant blobs (punctuation/noise) based on height, sorts remaining ones left-to-right, and uses slope tracking plus Least Median of Squares to identify baselines. Reconstructs elements like the dot on an “i.”</li>
+        <li><strong>3. Font Pitch Detection:</strong> 
+          <ul>
+            <li><em>Fixed-pitch fonts</em>: Characters are evenly spaced for easy segmentation.</li>
+            <li><em>Proportional fonts</em>: Tesseract uses fuzzy gap detection to help determine word boundaries.</li>
+          </ul>
+        </li>
+        <li><strong>4. Recognition (Two-Pass Approach):</strong> 
+          <ul>
+            <li><em>First Pass:</em> Recognizes each word and uses confident ones to train a temporary classifier.</li>
+            <li><em>Second Pass:</em> Classifier reattempts uncertain words for better accuracy.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Smart Features of Tesseract</h4>
+      <table border="1" cellpadding="6">
+        <thead>
+          <tr>
+            <th>Problem</th>
+            <th>What Tesseract Does</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Word doesn’t make sense</td>
+            <td>Uses A* search to regroup fragments</td>
+          </tr>
+          <tr>
+            <td>Letters are messy/incomplete</td>
+            <td>Breaks them into lines and compares against known shapes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Additional Steps</h4>
+      <ul>
+        <li><strong>Pruning:</strong> Narrows down possible characters.</li>
+        <li><strong>Matching:</strong> Compares blob outlines to known templates.</li>
+        <li><strong>Training:</strong> Uses ~60,000 character examples for robustness.</li>
+        <li><strong>Linguistic Check:</strong> Applies dictionary validation.</li>
+        <li><strong>Confidence & Rating:</strong> Assigns scores to character/word matches.</li>
+      </ul>
+
+      <h4>LSTM: Deep Learning Inside Tesseract</h4>
+      <p>
+        Tesseract 4.0+ integrates <strong>LSTM (Long Short-Term Memory)</strong> networks, a type of Recurrent Neural Network (RNN) that improves sequential understanding. LSTMs are ideal for reading across full lines or paragraphs of text due to their memory-based structure.
+      </p>
+      <ul>
+        <li><strong>Forget Gate:</strong> Filters out irrelevant inputs.</li>
+        <li><strong>Input Gate:</strong> Decides which new information to store.</li>
+        <li><strong>Output Gate:</strong> Determines what to pass along the network.</li>
+      </ul>
+      <p>
+        These gates enable the network to focus on useful patterns across time steps, dramatically increasing OCR accuracy—especially in noisy or complex documents.
+      </p>
+
+      <figure>
+        <img src="WebP Image.webp" alt="LSTM Cell Architecture Diagram showing input, forget, and output gates with memory flow." style="max-width: 100%; height: auto;" />
+        <figcaption>
+          <b>Figure 1: Architecture of an LSTM cell showing how input vector, memory, and hidden states flow through various gates (forget, input, and output) using sigmoid and tanh functions.</b>
+        </figcaption>
+      </figure>
+
+
+      
+
       <h3>Image Captioning with Vision-Language Transformers</h3>
       <p>
         For images embedded within documents, such as diagrams, charts, or
@@ -473,6 +548,15 @@
         Low Vision Users." Proceedings of CHI.
         <a href="#top">(Back to text)</a>
       </p>
+
+      <p id="ref8">
+        [8] MLReview. (2017). "Understanding LSTM and Its Diagrams." 
+        <a href="https://blog.mlreview.com/understanding-lstm-and-its-diagrams-37e2f46f1714" target="_blank">
+          https://blog.mlreview.com/understanding-lstm-and-its-diagrams-37e2f46f1714
+        </a>
+        <a href="#top">(Back to text)</a>
+      </p>
+      
       <p id="ref6">
         [6] Vijayanarayanan et al. (2023). "Image Processing Based on Optical
         Character Recognition with Text-to-Speech for Visually Impaired."
