@@ -39,8 +39,8 @@
         layout, structure, or nuanced visual detail—especially in documents that
         contain complex formatting or embedded images. Low vision refers to a
         visual acuity of less than 6/18 but equal to or better than 3/60 in the
-        better eye with best possible correction(World Health Organization,
-        2019). This classification underscores the challenges faced by
+        better eye with best possible correction (World Health Organization,
+        2019) [[9]]. This classification underscores the challenges faced by
         individuals who, despite some residual vision, encounter significant
         difficulties in processing visual information. As Nair et al. (2023)
         note, "little work has been done to explore the specific interaction
@@ -48,13 +48,12 @@
         propose potential solutions" beyond basic descriptions. To address this
         gap, we developed an AI-powered document reader that combines optical
         character recognition (OCR) with customizable text-to-speech features.
-        Our system uses Tesseract OCR to extract textual content from uploaded
+        Our system uses <a href="https://github.com/tesseract-ocr/tesseract" target="_blank">Tesseract OCR</a> to extract textual content from uploaded
         images and PDFs, then converts the output into spoken audio using Google
-        Text-to-Speech (gTTS)
+        Text-to-Speech (gTTS).
       </p>
       <p>
-        A core objective of this project is to move beyond isolated technical
-        demos and toward a cohesive, user-facing application. We built an
+        We built an
         accessible web interface using Gradio, prioritizing screen-reader
         compatibility, intuitive navigation, and user customization. Unlike many
         existing academic examples that emphasize model performance, our system
@@ -243,11 +242,11 @@
       <b>
         Figure 1: Architecture of an LSTM cell showing how input vector, memory,
         and hidden states flow through various gates (forget, input, and output)
-        using sigmoid and tanh functions. Adapted from Olah et al. (2015).
+        using sigmoid and tanh functions. Adapted from Dagshub Article [[10]].
       </b>
       <p>
         The integration of these models was managed through an interactive web
-        interface, which we developed using Gradio. Gradio allowed for quick
+        interface, which we developed using <a href="https://www.gradio.app/" target="_blank">Gradio</a>. Gradio allowed for quick
         prototyping and flexible interface creation using Blocks, making it an
         ideal choice for accessibility-focused design. The resulting web
         application allows users to upload documents or images, processes them
@@ -398,7 +397,7 @@
       </p>
       <p>
         Drawing from accessibility research and insights such as those found
-        in Morris et al., 2016, we also identified areas for improvement that we
+        in Morris et al., 2016 [[8]], we also identified areas for improvement that we
         plan to explore in future iterations. For example, enabling smarter
         magnification, intelligent color inversion, or hybrid screen reader
         modes could reduce fatigue for users who toggle between visual and audio
@@ -474,6 +473,28 @@
         >
         <a href="#top">(Back to text)</a>
       </p>
+      <p>
+        [8] Morris, M. R., Zolyomi, A., Yao, C., Bahram, S., Bigham, J. P., & Kane, S. K. (2016). 
+        "With most of it being pictures now, I rarely use it": Understanding Twitter's Evolving Accessibility to Blind Users. 
+        <em>Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '16), 5506–5516.</em> 
+        <a href="https://doi.org/10.1145/2858036.2858116" target="_blank">[DOI]</a> 
+        <a href="#top">(Back to text)</a>
+      </p>
+
+      <p>
+        [9] World Health Organization. (2019). <em>World Report on Vision</em>. 
+        Available at: <a href="https://www.who.int/publications/i/item/world-report-on-vision" target="_blank">https://www.who.int/publications/i/item/world-report-on-vision</a> 
+        <a href="#top">(Back to text)</a>
+      </p>
+
+      <p>
+        [10] Dagshub. (n.d.). <em>Understanding RNN, LSTM, and Bidirectional LSTM: A Beginner's Guide</em>. 
+        Available at: <a href="https://dagshub.com/blog/rnn-lstm-bidirectional-lstm/" target="_blank">https://dagshub.com/blog/rnn-lstm-bidirectional-lstm/</a> 
+        <a href="#top">(Back to text)</a>
+      </p>
+      
+      
+      
     </div>
   </body>
 </html>
