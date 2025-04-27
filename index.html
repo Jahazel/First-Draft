@@ -98,31 +98,34 @@
       </p>
       <h3>Data Curation and Use</h3>
       <p>
-        Our tool relies primarily on the Tesseract OCR engine and the 
-        <a href="https://www.kaggle.com/datasets/wassefy/synthtext" target="_blank">SynthText</a>
-        dataset, which offer a solid foundation for general-purpose text
-        recognition. These sources are well-established in the field and provide
-        a strong baseline for printed text extraction across a variety of
-        layouts. However, they have limitations when it comes to less
-        conventional document types—such as handwritten notes, tactile documents
-        like Braille, or heavily cluttered layouts—which could reduce the
-        effectiveness of our system in certain contexts.
+        Our tool relies primarily on the Tesseract OCR engine,
+         which uses <a href="https://tesseract-ocr.github.io/tessdoc/Data-Files" target="_blank">pre-trained "Trained Data Files"</a>
+         for general-purpose text 
+         recognition across a wide variety of languages and layouts. In addition to 
+         this, we reference the  <a href="https://www.kaggle.com/datasets/wassefy/synthtext" target="_blank">SynthText</a> dataset, which represents a small synthetic 
+         fraction of the broader training material. Together, these sources offer a 
+         strong foundation for printed text extraction across different document types. 
+         However, they also have limitations when it comes to less conventional 
+         documents—such as handwritten notes, tactile documents like Braille, or highly cluttered layouts—which could reduce
+          the effectiveness of our system in certain contexts.
+
+
       </p>
       <p>
-        Since our project focuses solely on OCR-based extraction (rather than
-        full document layout understanding or image captioning), our main
-        sources of potential bias relate to character recognition and language
-        coverage. A key issue is that Tesseract and SynthText are predominantly
-        trained on English and Latin-based scripts, meaning users working with
-        other languages or scripts may experience reduced accuracy.
-        Additionally, because SynthText is a synthetic dataset, it may not fully
-        capture the variability, noise, and imperfections found in real-world
-        scanned documents, forms, or receipts.
+        Since our project focuses solely on OCR-based extraction 
+        (rather than full document layout understanding or image captioning),
+         our main sources of potential bias relate to character recognition and
+          language coverage. A key concern is that the standard Tesseract-trained
+           models and datasets like SynthText are predominantly focused on English
+            and Latin-based scripts, meaning users working with other languages or writing systems may experience reduced accuracy. 
+            Additionally, because SynthText is synthetically generated, it may not fully reflect the variability, noise, and imperfections found in real-world scanned documents, forms, or receipts.
+
+
       </p>
       <p>
-        These limitations highlight the importance of validating our tool with a
-        wider range of real-world documents and expanding language and
-        formatting support in future iterations.
+        These limitations highlight the importance of validating 
+        our tool with a wider range of real-world documents and
+         expanding language and formatting support in future iterations.
       </p>
       <h3>Impact Assessment</h3>
       <p>
@@ -341,7 +344,11 @@
         and accessibility for users with low vision.
       </p>
 
-      <b>INSERT SCREENSHOT OF FRONTEND HERE</b>
+      <img src="/Screenshot 2025-04-27 at 1.32.18 PM.png" width="600" height="400" />
+      <img src="/Image-2.jpg" width="600" height="400" />
+      <img src="/Image-3.jpg" width="600" height="400" />
+
+
 
       <p>
         From the backend, the system successfully handled both .jpg/.png image
