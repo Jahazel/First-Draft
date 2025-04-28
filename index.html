@@ -10,11 +10,9 @@
     <div class="container">
       <h1 id="top">AI-Powered Document Reader for Low-Vision Users</h1>
       <h2>Team Members</h2>
-      <section class="team">
-        <p>
-          Jahazel Sanchez, Verrels Lukman Eugeneo, Asya Lyubavina, Jerry Onyango
-        </p>
-      </section>
+      <p class="team">
+        Jahazel Sanchez, Verrels Lukman Eugeneo, Asya Lyubavina, Jerry Onyango
+      </p>
 
       <h2>Abstract</h2>
       <p>
@@ -39,36 +37,45 @@
         layout, structure, or nuanced visual detail—especially in documents that
         contain complex formatting or embedded images. Low vision refers to a
         visual acuity of less than 6/18 but equal to or better than 3/60 in the
-        better eye with best possible correction (World Health Organization,
-        2019) [[9]]. This classification underscores the challenges faced by
-        individuals who, despite some residual vision, encounter significant
-        difficulties in processing visual information. As Nair et al. (2023)
+        better eye with best possible correction<sup><a href="#ref9">9</a></sup
+        >. This classification underscores the challenges faced by individuals
+        who, despite some residual vision, encounter significant difficulties in
+        processing visual information. As Nair et al. (2023)<sup
+          ><a href="#ref6">6</a></sup
+        >
         note, "little work has been done to explore the specific interaction
         bottlenecks faced by BLV users in the image exploration process and
         propose potential solutions" beyond basic descriptions. To address this
         gap, we developed an AI-powered document reader that combines optical
         character recognition (OCR) with customizable text-to-speech features.
-        Our system uses <a href="https://github.com/tesseract-ocr/tesseract" target="_blank">Tesseract OCR</a> to extract textual content from uploaded
-        images and PDFs, then converts the output into spoken audio using Google
-        Text-to-Speech (gTTS).
+        Our system uses
+        <a href="https://github.com/tesseract-ocr/tesseract" target="_blank"
+          >Tesseract OCR</a
+        >
+        to extract textual content from uploaded images and PDFs, then converts
+        the output into spoken audio using Google Text-to-Speech (gTTS).
       </p>
       <p>
-        We built an
-        accessible web interface using Gradio, prioritizing screen-reader
-        compatibility, intuitive navigation, and user customization. Unlike many
-        existing academic examples that emphasize model performance, our system
-        focuses on real-world usability—particularly for users who rely on
-        auditory output or have limited vision.
+        We built an accessible web interface using
+        <a href="https://gradio.app/" target="_blank">Gradio</a>, prioritizing
+        screen-reader compatibility, intuitive navigation, and user
+        customization. Unlike many existing academic examples that emphasize
+        model performance, our system focuses on real-world
+        usability—particularly for users who rely on auditory output or have
+        limited vision.
       </p>
 
       <figure>
-        <img src="/PNG image.png" width="600" height="400" />
-        <figcaption></figcaption>
+        <img
+          src="/PNG image.png"
+          width="600"
+          height="400"
+          alt="Web interface screenshot"
+        />
+        <figcaption>
+          <b>Figure 1:</b> Screenshot of the web interface.
+        </figcaption>
       </figure>
-      
-      <b>
-        Figure 1: Screenshot of the web interface 
-      </b>
 
       <p>
         While it does not aim to solve every accessibility challenge, it
@@ -79,6 +86,7 @@
       </p>
 
       <h2>Ethical Sweep</h2>
+
       <h3>General Considerations</h3>
       <p>
         At a high level, our work aims to improve accessibility for low-vision
@@ -105,37 +113,41 @@
         dependency on closed or proprietary platforms that might introduce bias
         or limit user control.
       </p>
+
       <h3>Data Curation and Use</h3>
       <p>
-        Our tool relies primarily on the Tesseract OCR engine,
-         which uses <a href="https://tesseract-ocr.github.io/tessdoc/Data-Files" target="_blank">pre-trained "Trained Data Files"</a>
-         for general-purpose text 
-         recognition across a wide variety of languages and layouts. In addition to 
-         this, we reference the  <a href="https://www.kaggle.com/datasets/wassefy/synthtext" target="_blank">SynthText</a> dataset, which represents a small synthetic 
-         fraction of the broader training material. Together, these sources offer a 
-         strong foundation for printed text extraction across different document types. 
-         However, they also have limitations when it comes to less conventional 
-         documents—such as handwritten notes, tactile documents like Braille, or highly cluttered layouts—which could reduce
-          the effectiveness of our system in certain contexts.
-
-
+        Our tool relies primarily on the Tesseract OCR engine<sup
+          ><a href="#ref1">1</a></sup
+        >, which uses pre-trained "Trained Data Files" for general-purpose text
+        recognition across a wide variety of languages and layouts. In addition
+        to this, we reference the SynthText dataset<sup
+          ><a href="#ref6">6</a></sup
+        >, which represents a small synthetic fraction of the broader training
+        material. Together, these sources offer a strong foundation for printed
+        text extraction across different document types. However, they also have
+        limitations when it comes to less conventional documents—such as
+        handwritten notes, tactile documents like Braille, or highly cluttered
+        layouts—which could reduce the effectiveness of our system in certain
+        contexts.
       </p>
       <p>
-        Since our project focuses solely on OCR-based extraction 
-        (rather than full document layout understanding or image captioning),
-         our main sources of potential bias relate to character recognition and
-          language coverage. A key concern is that the standard Tesseract-trained
-           models and datasets like SynthText are predominantly focused on English
-            and Latin-based scripts, meaning users working with other languages or writing systems may experience reduced accuracy. 
-            Additionally, because SynthText is synthetically generated, it may not fully reflect the variability, noise, and imperfections found in real-world scanned documents, forms, or receipts.
-
-
+        Since our project focuses solely on OCR-based extraction (rather than
+        full document layout understanding or image captioning), our main
+        sources of potential bias relate to character recognition and language
+        coverage. A key concern is that the standard Tesseract-trained models
+        and datasets like SynthText are predominantly focused on English and
+        Latin-based scripts, meaning users working with other languages or
+        writing systems may experience reduced accuracy. Additionally, because
+        SynthText is synthetically generated, it may not fully reflect the
+        variability, noise, and imperfections found in real-world scanned
+        documents, forms, or receipts.
       </p>
       <p>
-        These limitations highlight the importance of validating 
-        our tool with a wider range of real-world documents and
-         expanding language and formatting support in future iterations.
+        These limitations highlight the importance of validating our tool with a
+        wider range of real-world documents and expanding language and
+        formatting support in future iterations.
       </p>
+
       <h3>Impact Assessment</h3>
       <p>
         Our main ethical focus is on how the tool might affect users if it were
@@ -171,34 +183,35 @@
       <p>
         Several previous efforts have informed and shaped our project, yet each
         contains gaps that our solution specifically targets and resolves. For
-        example, Smith's ImageAssist (2021) [[5]] enabled visually impaired
-        users to explore document images through a screen reader-accessible
-        interface with gesture-based region highlighting. However, it focused
-        primarily on isolated, exploratory interactions rather than integrated
-        interpretation of mixed textual-visual content. Our application
-        explicitly advances beyond this by providing cohesive, contextually
-        integrated descriptions for entire documents, thus filling a crucial
-        accessibility gap left by ImageAssist.
+        example, Smith's ImageAssist (2021)<sup><a href="#ref5">5</a></sup>
+        enabled visually impaired users to explore document images through a
+        screen reader-accessible interface with gesture-based region
+        highlighting. However, it focused primarily on isolated, exploratory
+        interactions rather than integrated interpretation of mixed
+        textual-visual content. Our application explicitly advances beyond this
+        by providing cohesive, contextually integrated descriptions for entire
+        documents, thus filling a crucial accessibility gap left by ImageAssist.
       </p>
       <p>
-        Vijayanarayanan et al. (2023) [[6]] combined optical character
-        recognition (OCR) with text-to-speech to help users extract printed text
-        from digital images. While their approach highlighted OCR’s strengths in
-        parsing clear, structured text, it overlooked the interpretation of
-        complex visual elements and irregular document layouts. Our project
-        directly addresses this limitation by integrating HuggingFace
-        transformer models optimized for image captioning and layout
-        comprehension, ensuring that textual and visual elements are both
-        included in the document’s accessible description.
+        Vijayanarayanan et al. (2023)<sup><a href="#ref6">6</a></sup> combined
+        optical character recognition (OCR) with text-to-speech to help users
+        extract printed text from digital images. While their approach
+        highlighted OCR’s strengths in parsing clear, structured text, it
+        overlooked the interpretation of complex visual elements and irregular
+        document layouts. Our project directly addresses this limitation by
+        integrating HuggingFace transformer models optimized for image
+        captioning and layout comprehension, ensuring that textual and visual
+        elements are both included in the document’s accessible description.
       </p>
       <p>
-        Bodi et al. (2021) [[7]] developed tools like NarrationBot and InfoBot
-        to generate real-time contextual audio descriptions for dynamic media
-        (e.g., video), helping blind users understand changes in visual scenes.
-        However, their work remains focused on dynamic environments, leaving
-        static, document-based interactions underexplored. Our solution adapts
-        those principles of multimodal narration to static content, specifically
-        targeting documents that combine text and embedded imagery. 
+        Bodi et al. (2021)<sup><a href="#ref7">7</a></sup> developed tools like
+        NarrationBot and InfoBot to generate real-time contextual audio
+        descriptions for dynamic media (e.g., video), helping blind users
+        understand changes in visual scenes. However, their work remains focused
+        on dynamic environments, leaving static, document-based interactions
+        underexplored. Our solution adapts those principles of multimodal
+        narration to static content, specifically targeting documents that
+        combine text and embedded imagery.
       </p>
       <p>
         Collectively, our project synthesizes these foundational insights while
@@ -219,10 +232,12 @@
         strategies that powered our system.
       </p>
       <p>
-        To extract text from images and PDFs, we selected Tesseract OCR due to
-        its open-source accessibility and extensive community validation across
-        various fonts and languages. Tesseract is particularly effective in
-        converting scanned or image-based text into digital content, which is
+        To extract text from images and PDFs, we selected Tesseract OCR<sup
+          ><a href="#ref1">1</a></sup
+        >
+        due to its open-source accessibility and extensive community validation
+        across various fonts and languages. Tesseract is particularly effective
+        in converting scanned or image-based text into digital content, which is
         critical for users who depend on screen readers or text-to-speech
         technology. The OCR pipeline in Tesseract includes several preprocessing
         stages such as layout analysis, line segmentation, and blob detection.
@@ -247,43 +262,52 @@
         sigmoid and hyperbolic tangent functions to regulate memory updates and
         output generation.
       </p>
-      <img
-        class="imgg"
-        src="WebP Image.webp"
-        alt="LSTM Cell Architecture Diagram showing input, forget, and output gates with memory flow."
-      />
-      <b>
-        Figure 2: Architecture of an LSTM cell showing how input vector, memory,
-        and hidden states flow through various gates (forget, input, and output)
-        using sigmoid and tanh functions. Adapted from Dagshub Article [[10]].
-      </b>
+
+      <figure>
+        <img
+          class="imgg"
+          src="WebP Image.webp"
+          alt="LSTM cell architecture diagram"
+        />
+        <figcaption>
+          <b>Figure 2:</b> Architecture of an LSTM cell showing input, memory,
+          and output gates, adapted from Dagshub<sup
+            ><a href="#ref10">10</a></sup
+          >.
+        </figcaption>
+      </figure>
+
       <p>
         The integration of these models was managed through an interactive web
-        interface, which we developed using <a href="https://www.gradio.app/" target="_blank">Gradio</a>. Gradio allowed for quick
-        prototyping and flexible interface creation using Blocks, making it an
-        ideal choice for accessibility-focused design. The resulting web
-        application allows users to upload documents or images, processes them
-        through the OCR pipeline, and outputs structured textual descriptions
-        that can be read aloud using a text-to-speech module.
+        interface, which we developed using
+        <a href="https://www.gradio.app/" target="_blank">Gradio</a
+        ><sup><a href="#ref3">3</a></sup
+        >. Gradio allowed for quick prototyping and flexible interface creation
+        using Blocks, making it an ideal choice for accessibility-focused
+        design. The resulting web application allows users to upload documents
+        or images, processes them through the OCR pipeline, and outputs
+        structured textual descriptions that can be read aloud using a
+        text-to-speech module.
       </p>
 
-      <b>INSERT FULL SYSTEM PIPELINE DIAGRAM HERE </b>
+      <p><b>INSERT FULL SYSTEM PIPELINE DIAGRAM HERE</b></p>
 
       <p>
         To evaluate our models and measure the system’s effectiveness, we used
-        data from the SynthText dataset as well as Tesseract’s own training
-        corpus. The SynthText dataset contains over 800,000 synthetic text
-        images that simulate real-world distortions, including varied
-        backgrounds, fonts, and orientations. This diversity allowed us to test
-        the robustness of the OCR pipeline across a wide range of visual
-        conditions. We evaluated OCR performance using precision, recall, and F1
-        scores on extracted words. For the vision-language models, we assessed
-        caption quality using BLEU and ROUGE scores, comparing the generated
-        descriptions to human-annotated ground truths. We also conducted manual
-        reviews to ensure contextual relevance and clarity in the captions.
+        data from the SynthText dataset<sup><a href="#ref6">6</a></sup> as well
+        as Tesseract’s own training corpus. The SynthText dataset contains over
+        800,000 synthetic text images that simulate real-world distortions,
+        including varied backgrounds, fonts, and orientations. This diversity
+        allowed us to test the robustness of the OCR pipeline across a wide
+        range of visual conditions. We evaluated OCR performance using
+        precision, recall, and F1 scores on extracted words. For the
+        vision-language models, we assessed caption quality using BLEU and ROUGE
+        scores, comparing the generated descriptions to human-annotated ground
+        truths. We also conducted manual reviews to ensure contextual relevance
+        and clarity in the captions.
       </p>
       <p>
-        Post processing was a crucial step in refining the user experience. OCR
+        Post-processing was a crucial step in refining the user experience. OCR
         outputs were cleaned to remove unwanted formatting artifacts and
         normalize punctuation and spacing. Image captions were filtered to
         reduce repetition and vague phrasing. In the audio output pipeline, we
@@ -302,6 +326,7 @@
       </p>
 
       <h2>Results</h2>
+
       <video
         src="Screen Recording 2025-04-19 at 8.58.04 PM.mov"
         controls
@@ -309,66 +334,116 @@
       >
         Your browser does not support the video tag.
       </video>
+
       <p>
         To evaluate our system's ability to extract and vocalize textual content
         from documents, we built and tested a fully functional web-based
-        interface using Gradio. The resulting tool, titled Image to Speech
-        Converter, allows users to upload images or PDFs, extract embedded text
-        using Tesseract OCR, and receive audio playback using Google
-        Text-to-Speech (gTTS). Users can also select from different English
-        voice types, including Female US, Female AU, and UK English. The system
-        was tested using a range of document types, including clean text, text
-        with visual noise, and longer passages.
+        interface using <a href="https://gradio.app/" target="_blank">Gradio</a
+        ><sup><a href="#ref3">3</a></sup
+        >. The resulting tool, titled <i>Image to Speech Converter</i>, allows
+        users to upload images or PDFs, extract embedded text using Tesseract
+        OCR<sup><a href="#ref1">1</a></sup
+        >, and receive audio playback using Google Text-to-Speech (gTTS). Users
+        can also select from different English voice types, including Female US,
+        Female AU, and UK English. The system was tested using a range of
+        document types, including clean text, text with visual noise, and longer
+        passages.
       </p>
-      <img src="images copy.jpeg" alt="" />
-      <b
-        >Figure 3: An image with a noisy background highlighted one of the
-        limitations of standard OCR, as Tesseract struggled to return clean
-        results due to the speckled background noise.
-      </b>
-      <img src="sample copy.jpg" alt="" />
-      <b
-        >Figure 4: A high-contrast, simple image that was processed
-        successfully, demonstrating strong OCR performance under ideal
-        conditions.
-      </b>
+
+      <figure>
+        <img
+          src="images copy.jpeg"
+          alt="Image showing noisy background and OCR difficulty"
+        />
+        <figcaption>
+          <b>Figure 3:</b> OCR struggles with a noisy background, causing
+          lower-quality text extraction.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="sample copy.jpg"
+          alt="High contrast clean image used in OCR testing"
+        />
+        <figcaption>
+          <b>Figure 4:</b> OCR performs well under high-contrast and clean input
+          conditions.
+        </figcaption>
+      </figure>
 
       <p>
-        Each of these inputs generated an MP3 file stored in the outputs/
-        folder, confirming successful audio synthesis. These audio files are
-        named based on the uploaded filename and the selected voice, e.g.,
-        sample_female_us.mp3. A screenshot of the output directory (shown below)
-        verifies the system's ability to generate multiple outputs across
-        testing sessions.
+        Each of these inputs generated an MP3 file stored in the
+        <code>outputs/</code> folder, confirming successful audio synthesis.
+        These audio files are named based on the uploaded filename and the
+        selected voice, e.g., <code>sample_female_us.mp3</code>. A screenshot of
+        the output directory (shown below) verifies the system's ability to
+        generate multiple outputs across testing sessions.
       </p>
 
       <b>INSERT SCREENSHOT OF OUTPUT DIRECTORY HERE</b>
 
       <p>
-        The frontend was built with Gradio's Blocks API, which provided
+        The frontend was built with Gradio’s Blocks API, which provided
         flexibility in creating a modular interface. Features include a file
         upload component, voice type dropdown, audio preview, text display of
         processing status, and a download button for offline access to generated
         speech. The UI was further customized with CSS to improve readability
-        and accessibility for users with low vision. <b>See below of the annotated UI</b>
+        and accessibility for users with low vision.
       </p>
 
-      <img src="/Screenshot 2025-04-27 at 1.32.18 PM.png" width="600" height="400" />
-      <img src="/Image-2.jpg" width="600" height="400" />
-      <img src="/Image-3.jpg" width="600" height="400" />
+      <b>See below for the annotated UI:</b>
 
-      
+      <figure>
+        <img
+          src="/Screenshot 2025-04-27 at 1.32.18 PM.png"
+          width="600"
+          height="400"
+          alt="Annotated screenshot showing file upload, voice type, and processing status"
+        />
+        <figcaption>
+          <b>Figure 5:</b> Annotated screenshot showing upload area, voice type
+          selection, and clear file upload interface for users with low vision.
+        </figcaption>
+      </figure>
 
+      <figure>
+        <img
+          src="/Image-2.jpg"
+          width="600"
+          height="400"
+          alt="Annotated screenshot showing display theme selection options"
+        />
+        <figcaption>
+          <b>Figure 6:</b> Annotated screenshot highlighting the ability to
+          switch between light, dark, and system display themes.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="/Image-3.jpg"
+          width="600"
+          height="400"
+          alt="Annotated screenshot showing support for 20+ languages"
+        />
+        <figcaption>
+          <b>Figure 7:</b> Annotated screenshot demonstrating inclusivity with
+          support for over 20 different languages.
+        </figcaption>
+      </figure>
 
       <p>
-        From the backend, the system successfully handled both .jpg/.png image
-        inputs and .pdf documents. PDF processing was handled by pdf2image,
-        converting pages into images before passing them to Tesseract. Text was
-        then sent to gTTS for synthesis using the selected language and accent.
-        Voice customization was achieved using the tld parameter in gTTS,
-        allowing regional variations like US (.com), UK (.co.uk), and Australia
-        (.com.au).
+        From the backend, the system successfully handled both
+        <code>.jpg</code>/<code>.png</code> image inputs and
+        <code>.pdf</code> documents. PDF processing was handled by
+        <code>pdf2image</code>, converting pages into images before passing them
+        to Tesseract. Text was then sent to gTTS for synthesis using the
+        selected language and accent. Voice customization was achieved using the
+        <code>tld</code> parameter in gTTS, allowing regional variations like US
+        (.com), UK (.co.uk), and Australia (.com.au).
       </p>
+
       <p>
         The extracted audio was clear and accurate for all clean inputs. As
         expected, performance degraded slightly with visually noisy inputs,
@@ -377,142 +452,73 @@
         supports the need for preprocessing techniques or fallback strategies in
         future versions of the tool.
       </p>
-      <h2>Reflection</h2>
-      <p>
-        Working on the AI-Powered Document Reader pushed our team to think
-        deeply not only about what machine learning tools can do, but how they
-        can be shaped into something that truly serves users—particularly those
-        with low vision. Across both the backend and frontend, we encountered
-        real challenges that taught us the importance of technical adaptability,
-        responsible development practices, and intentional design for
-        accessibility.
-      </p>
-      <p>
-        From a backend perspective, one key takeaway was the importance of
-        choosing the right tools for the scope of the project. As one teammate
-        reflected, we learned to research and read documentation carefully
-        before adopting any new technology. In the early stages, we sometimes
-        prioritized novelty over practicality—trying frameworks or models
-        without fully understanding their dependencies or long-term
-        maintainability. This approach quickly led to compatibility issues and
-        unnecessary complexity. Eventually, we focused on lightweight,
-        well-supported technologies with strong community backing. Tools like
-        gTTS, pytesseract, and Gradio offered just enough functionality without
-        overloading the stack, and their active support ecosystems helped us
-        avoid getting stuck with unpatched code or security risks.
-      </p>
-      <p>
-        On the frontend, we designed our UI with low-vision accessibility as a
-        central concern. We used bold text, dark backgrounds, and high-contrast
-        elements to improve readability, and we offered multiple voice
-        options—including regional accents—to give users greater control over
-        how they engage with the content. As one teammate noted, even small
-        design decisions—like enabling font customizations or providing
-        adjustable speech speed—can make a huge difference in user experience.
-        These choices weren’t just cosmetic; they reflected a deeper goal: to
-        empower users to navigate information in the way that feels most
-        intuitive and comfortable to them.
-      </p>
-      <p>
-        Drawing from accessibility research and insights such as those found
-        in Morris et al., 2016 [[8]], we also identified areas for improvement that we
-        plan to explore in future iterations. For example, enabling smarter
-        magnification, intelligent color inversion, or hybrid screen reader
-        modes could reduce fatigue for users who toggle between visual and audio
-        inputs. Implementing gesture simplification and building a clear
-        onboarding experience would also lower the barrier for first-time users.
-        One powerful idea that stood out was the need to respect social
-        discretion—that is, designing accessibility features that blend
-        seamlessly into the interface so users don’t feel singled out or
-        visually marked by their adaptations.
-      </p>
-      <p>
-        As a group, we also came to understand that accessibility isn't just a
-        checklist—it’s a mindset. Inclusive design requires constant
-        questioning: Who is being served by this interface? What assumptions are
-        we making about how people access information? And how can we give users
-        more autonomy over their experience? These questions challenged us to
-        move beyond functional success into ethical and human-centered problem
-        solving.
-      </p>
-      <p>
-        In the future, we hope to incorporate real user testing with blind and
-        low-vision individuals to validate our design assumptions. We’d also
-        like to explore features like dynamic font scaling, touchless
-        navigation, and environment-aware theming (e.g., auto-switching based on
-        lighting conditions). Ultimately, this project showed us that AI is most
-        powerful when it extends access, not just when it automates tasks—and
-        that true innovation happens when technical creativity meets deep
-        listening to user needs.
-      </p>
 
       <h2>References</h2>
-      <p id="ref1">
-        [1] Tesseract OCR.
-        <a href="https://github.com/tesseract-ocr/tesseract"
-          >https://github.com/tesseract-ocr/tesseract</a
-        >
-        <a href="#top">(Back to text)</a>
-      </p>
-      <p id="ref2">
-        [2] HuggingFace Transformers.
-        <a href="https://huggingface.co/transformers/"
-          >https://huggingface.co/transformers/</a
-        >
-        <a href="#top">(Back to text)</a>
-      </p>
-      <p id="ref3">
-        [3] Gradio.
-        <a href="https://gradio.app/">https://gradio.app/</a>
-        <a href="#top">(Back to text)</a>
-      </p>
-      <p id="ref4">
-        [4] Streamlit.
-        <a href="https://streamlit.io/">https://streamlit.io/</a>
-        <a href="#top">(Back to text)</a>
-      </p>
-      <p id="ref5">
-        [5] Smith, B. A. (2021). "ImageAssist: Enhancing Image Understanding for
-        Low Vision Users." Proceedings of CHI.
-        <a href="#top">(Back to text)</a>
-      </p>
-      <p id="ref6">
-        [6] Vijayanarayanan et al. (2023). "Image Processing Based on Optical
-        Character Recognition with Text-to-Speech for Visually Impaired."
-        <em>Journal of Scientific and Engineering Research, 6(4).</em>
-        <a href="#top">(Back to text)</a>
-      </p>
-      <p id="ref7">
-        [7] Bodi et al. (2021). "Automated Video Description for Blind and Low
-        Vision Users."
-        <em
-          >Proceedings of CHI Conference on Human Factors in Computing
-          Systems.</em
-        >
-        <a href="#top">(Back to text)</a>
-      </p>
-      <p>
-        [8] Morris, M. R., Zolyomi, A., Yao, C., Bahram, S., Bigham, J. P., & Kane, S. K. (2016). 
-        "With most of it being pictures now, I rarely use it": Understanding Twitter's Evolving Accessibility to Blind Users. 
-        <em>Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '16), 5506–5516.</em> 
-        <a href="https://doi.org/10.1145/2858036.2858116" target="_blank">[DOI]</a> 
-        <a href="#top">(Back to text)</a>
-      </p>
-
-      <p>
-        [9] World Health Organization. (2019). <em>World Report on Vision</em>. 
-        Available at: <a href="https://www.who.int/publications/i/item/world-report-on-vision" target="_blank">https://www.who.int/publications/i/item/world-report-on-vision</a> 
-        <a href="#top">(Back to text)</a>
-      </p>
-
-      <p>
-        [10] Dagshub. (n.d.). <em>Understanding RNN, LSTM, and Bidirectional LSTM: A Beginner's Guide</em>. 
-        Available at: <a href="https://dagshub.com/blog/rnn-lstm-bidirectional-lstm/" target="_blank">https://dagshub.com/blog/rnn-lstm-bidirectional-lstm/</a> 
-        <a href="#top">(Back to text)</a>
-      </p>
-      
-      
-      
+      <ol>
+        <li id="ref1">
+          Tesseract OCR.
+          <a href="https://github.com/tesseract-ocr/tesseract" target="_blank"
+            >https://github.com/tesseract-ocr/tesseract</a
+          >
+        </li>
+        <li id="ref2">
+          HuggingFace Transformers.
+          <a href="https://huggingface.co/transformers/" target="_blank"
+            >https://huggingface.co/transformers/</a
+          >
+        </li>
+        <li id="ref3">
+          Gradio.
+          <a href="https://gradio.app/" target="_blank">https://gradio.app/</a>
+        </li>
+        <li id="ref5">
+          Smith, B. A. (2021). "ImageAssist: Enhancing Image Understanding for
+          Low Vision Users." Proceedings of CHI.
+        </li>
+        <li id="ref6">
+          Vijayanarayanan et al. (2023). "Image Processing Based on Optical
+          Character Recognition with Text-to-Speech for Visually Impaired."
+          <em>Journal of Scientific and Engineering Research, 6(4)</em>.
+        </li>
+        <li id="ref7">
+          Bodi et al. (2021). "Automated Video Description for Blind and Low
+          Vision Users."
+          <em
+            >Proceedings of the CHI Conference on Human Factors in Computing
+            Systems</em
+          >.
+        </li>
+        <li id="ref8">
+          Morris, M. R., Zolyomi, A., Yao, C., Bahram, S., Bigham, J. P., &
+          Kane, S. K. (2016). "With most of it being pictures now, I rarely use
+          it": Understanding Twitter's Evolving Accessibility to Blind Users.
+          <em>Proceedings of CHI '16</em>, 5506–5516.
+          <a href="https://doi.org/10.1145/2858036.2858116" target="_blank"
+            >[DOI]</a
+          >
+        </li>
+        <li id="ref9">
+          World Health Organization. (2019). <em>World Report on Vision</em>.
+          Available at:
+          <a
+            href="https://www.who.int/publications/i/item/world-report-on-vision"
+            target="_blank"
+            >https://www.who.int/publications/i/item/world-report-on-vision</a
+          >.
+        </li>
+        <li id="ref10">
+          Dagshub. (n.d.).
+          <em
+            >Understanding RNN, LSTM, and Bidirectional LSTM: A Beginner's
+            Guide</em
+          >. Available at:
+          <a
+            href="https://dagshub.com/blog/rnn-lstm-bidirectional-lstm/"
+            target="_blank"
+            >https://dagshub.com/blog/rnn-lstm-bidirectional-lstm/</a
+          >.
+        </li>
+      </ol>
     </div>
   </body>
 </html>
