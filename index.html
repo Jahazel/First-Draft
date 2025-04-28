@@ -293,32 +293,27 @@
       <p><b>INSERT FULL SYSTEM PIPELINE DIAGRAM HERE</b></p>
 
       <p>
-        To evaluate our models and measure the system’s effectiveness, we used
-        data from the SynthText dataset<sup><a href="#ref6">6</a></sup> as well
+        To understand our models and measure the system’s effectiveness, we used 
+        the pre-trained  data from the SynthText dataset<sup><a href="#ref6">6</a></sup> as well
         as Tesseract’s own training corpus. The SynthText dataset contains over
         800,000 synthetic text images that simulate real-world distortions,
-        including varied backgrounds, fonts, and orientations. This diversity
-        allowed us to test the robustness of the OCR pipeline across a wide
-        range of visual conditions. We evaluated OCR performance using
-        precision, recall, and F1 scores on extracted words. For the
-        vision-language models, we assessed caption quality using BLEU and ROUGE
-        scores, comparing the generated descriptions to human-annotated ground
-        truths. We also conducted manual reviews to ensure contextual relevance
+        including varied backgrounds, fonts, and orientations. To test the 
+        system’s performance, we simply 
+        conducted manual reviews to ensure contextual relevance
         and clarity in the captions.
       </p>
       <p>
-        Post-processing was a crucial step in refining the user experience. OCR
-        outputs were cleaned to remove unwanted formatting artifacts and
-        normalize punctuation and spacing. Image captions were filtered to
-        reduce repetition and vague phrasing. In the audio output pipeline, we
-        optimized pronunciation and pacing to improve intelligibility for screen
-        reader users. These steps helped align the system’s output with user
-        expectations for both clarity and accessibility.
+        Since we relied entirely on pre-trained models and
+         built-in pipelines provided by the software, no new measurements,
+          model training, post-processing, or audio adjustments were performed.
+           The OCR outputs, image captions, and audio were generated and cleaned
+          through the system’s own internal processes. Our work focused on utilizing
+           these existing outputs to support user needs without additional 
+           modification.
       </p>
       <p>
-        Finally, our development process was iterative and guided by a
-        commitment to accessibility. Although we have not yet conducted formal
-        user testing, we plan to incorporate feedback mechanisms within the
+       Although we have not yet conducted formal
+        user testing, in the future, we plan to incorporate feedback mechanisms within the
         application. Users will be able to flag incorrect outputs, and these
         reports will help us prioritize improvements in future versions. Our
         goal is to ensure that the system continues to evolve based on
